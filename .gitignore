@@ -1,0 +1,22 @@
+# caches
+__pycache__/
+.ruff_cache/
+.mypy_cache/
+wandb/
+git-lfs*
+
+# data
+data/dmt/
+*.nc
+*.npy
+*.png
+!image.png
+!data/training/*
+
+# checkpoints
+*.ckpt
+*.h5
+*.pth
+*.pt
+!final_checkpoints/UnetPlusPlus/inference_UnetPlusPlus_aid.pth
+!final_checkpoints/UnetPlusPlus/validation_UnetPlusPlus_aid.pth
