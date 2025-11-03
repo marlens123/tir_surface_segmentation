@@ -1,0 +1,23 @@
+{
+    "model": {
+      "backbone": "resnet34",
+      "im_size": 480,
+      "num_classes": 3,
+      "activation": "softmax",
+      "pretrain": "imagenet",
+      "encoder_freeze": false
+    },
+    "training": {
+      "use_class_weights": true,
+      "num_epochs": 150,
+      "loss": "focal_dice",
+      "optimizer": "Adam",
+      "batch_size": 2,
+      "z_score_normalize": false,
+      "augmentation": true,
+      "augmentation_mode": 2,
+      "learning_rate": 0.001,
+      "weight_decay": 0.001
+    }
+  }
+  

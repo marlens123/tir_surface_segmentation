@@ -1,0 +1,23 @@
+{
+    "model": {
+      "im_size": 480,
+      "num_classes": 3,
+      "autosam_size": "vit_b",
+      "activation": "softmax",
+      "encoder_freeze": true,
+      "pretrain": "sa-1b"
+    },
+    "training": {
+      "use_class_weights": true,
+      "num_epochs": 150,
+      "loss": "focal_dice",
+      "optimizer": "Adam",
+      "batch_size": 1,
+      "augmentation": true,
+      "augmentation_mode": 2,
+      "z_score_normalize": false,
+      "learning_rate": 0.0005,
+      "weight_decay": 0.001
+    }
+  }
+  
