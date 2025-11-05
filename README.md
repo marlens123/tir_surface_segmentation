@@ -1,7 +1,7 @@
 ## Overview
 This repository accompanies the paper submission titled "Deep Learning for the Detection of Melt Ponds on Sea Ice from Airborne Infrared Images". The repository contains code for segmenting helicopter-borne thermal infrared images into three classes: melt pond, sea ice, and ocean.
 
-![alt text](image.png)
+<img width="1127" height="231" alt="README" src="https://github.com/user-attachments/assets/bfdcdb77-7e11-473a-957a-65f7fa4925fe" />
 
 ## Available Materials:
 - Labeled Training Data: The labeled subset of the thermal infrared (TIR) images and manual annotations used for training the model are available in the `data/training/` directory.
