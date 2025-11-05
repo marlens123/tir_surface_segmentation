@@ -1,3 +1,6 @@
+## Note
+This repository requires Git LFS. Cloning may not be completed successfully without LFS installed.
+
 ## Overview
 This repository accompanies the paper submission titled "Deep Learning for the Detection of Melt Ponds on Sea Ice from Airborne Infrared Images". The repository contains code for segmenting helicopter-borne thermal infrared images into three classes: melt pond, sea ice, and ocean.
 
