@@ -406,8 +406,6 @@ def main():
         mp_probability_per_image = np.array(mp_probability_per_image)
         si_probability_per_image = np.array(si_probability_per_image)
         oc_probability_per_image = np.array(oc_probability_per_image)
-
-        import pdb; pdb.set_trace()
         
         # make sure to not repeat calculations if output nc file was created
         if not args.create_output_nc:
