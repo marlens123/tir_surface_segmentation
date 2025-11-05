@@ -270,15 +270,6 @@ def init(batch_size_labeled, batch_size_pseudo, state, split, sets_id):
                                                          batch_size=batch_size_labeled,
                                                          num_workers=0, 
                                                          shuffle=True)
-            labeled_set2 = SemiSupervisedDataset(
-                            cfg_model, 
-                            cfg_training,  
-                            preprocessing=get_preprocessing(pretraining=cfg_model["pretrain"]), 
-                            im_size=480, 
-                            label_state=0,
-                            image_set=(str(split) + '_labeled_' + str(sets_id)),
-                            image_dir="data/dmt/images/",
-                            )
             return labeled_loader, val_loader
 
         # Semi-supervised training
@@ -381,7 +372,6 @@ def train(loader_c, loader_sup, validation_loader, device, criterion, net, optim
             optimizer.zero_grad()
             with autocast(is_mixed_precision):
                 outputs = net(inputs)
-                import pdb; pdb.set_trace()
                 conf_mat.update(labels.flatten(), outputs.argmax(1).flatten())
 
                 if with_sup:

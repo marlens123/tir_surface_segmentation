@@ -12,12 +12,12 @@
       "num_epochs": 150,
       "loss": "focal_dice",
       "optimizer": "Adam",
-      "batch_size": 1,
+      "batch_size": 4,
       "augmentation": true,
       "augmentation_mode": 2,
       "z_score_normalize": false,
       "learning_rate": 0.0005,
-      "weight_decay": 0.001
+      "weight_decay": 0.00001
     }
   }
   

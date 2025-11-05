@@ -53,6 +53,9 @@ This repository relies on pre-training checkpoints from the following sources:
 
 Please store all downloaded checkpoints in the respective folders within the `pretraining_checkpoints/` directory.
 
+### Hyperparameters
+The final hyperparameters for the architecture - pre-training combinations can be found under `final_{`architecture`}_sweep_configuration_{`pretraining`}` in `scripts.crossvalidate_autosam_torch.py` for AutoSAM and in `scripts.crossvalidate_smp_torch.py` for all others.
+
 ### Experiment Tracking
 
 This project uses [Weights & Biases (WandB)](https://wandb.ai) for experiment tracking.

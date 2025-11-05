@@ -128,6 +128,8 @@ class SemiSupervisedDataset(BaseDataset):
         if self.has_label:
             # Return x (input image) & y (mask images as a list)
             # Supports .png & .npy
+            if self.masks[index].endswith('.npy'):
+                print(self.masks[index], flush=True)
             target = cv2.imread(self.masks[index], 0) if '.png' in self.masks[index] else np.load(self.masks[index])
             if not target.ndim == 3:
                 target = np.expand_dims(np.array(target), axis=-1).astype(np.float32)
