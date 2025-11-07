@@ -201,7 +201,7 @@ def main():
         for idx, file in enumerate(os.listdir(args.preprocessed_path)):
             print(masks.dtype)
             os.makedirs(os.path.join(args.predicted_path, "raw/"), exist_ok=True)
-            id = file.split(".")[0]
+            id_pred = file.split(".")[0]
 
             if file.endswith(".png"):
                 img = cv2.imread(os.path.join(args.preprocessed_path, file), 0)
@@ -214,7 +214,7 @@ def main():
                         pretraining="sa-1b",
                         autosam_size=args.autosam_size,
                         save_path=os.path.join(
-                            args.predicted_path, "raw/{}.png".format(id)
+                            args.predicted_path, "raw/{}.png".format(id_pred)
                         ),
                         normalize=args.normalize,
                         no_finetune=args.no_finetune,
@@ -227,7 +227,7 @@ def main():
                         weights=args.weights_path,
                         pretraining="aid",
                         save_path=os.path.join(
-                            args.predicted_path, "raw/{}.png".format(id)
+                            args.predicted_path, "raw/{}.png".format(id_pred)
                         ),
                         normalize=args.normalize,
                         no_finetune=args.no_finetune,
@@ -245,7 +245,7 @@ def main():
         for idx, file in enumerate(os.listdir(args.preprocessed_path)):
             print(features.dtype)
             os.makedirs(os.path.join(args.predicted_path, "raw/"), exist_ok=True)
-            id = file.split(".")[0]
+            id_pred = file.split(".")[0]
 
             if file.endswith(".png"):
                 img = cv2.imread(os.path.join(args.preprocessed_path, file), 0)
@@ -257,7 +257,7 @@ def main():
                     weights=args.weights_path,
                     pretraining="aid",
                     save_path=os.path.join(
-                        args.predicted_path, "raw/{}.png".format(id)
+                        args.predicted_path, "raw/{}.png".format(id_pred)
                     ),
                     normalize=args.normalize,
                     no_finetune=args.no_finetune,
@@ -273,12 +273,12 @@ def main():
         for idx, file in enumerate(
             os.listdir(os.path.join(args.predicted_path, "raw/"))
         ):
-            id = file.split(".")[0]
+            id_pred = file.split(".")[0]
             im = label_to_pixelvalue(
                 cv2.imread(os.path.join(args.predicted_path, "raw/", file))
             )
             cv2.imwrite(
-                os.path.join(args.predicted_path, "grayscale/{}.png".format(id)),
+                os.path.join(args.predicted_path, "grayscale/{}.png".format(id_pred)),
                 im,
             )
 
@@ -318,7 +318,7 @@ def main():
         toexclude = ['Ts', 'grad']
         crop = ['yd', 'xd']
 
-        with nc.Dataset(args.data) as src, nc.Dataset('data/prediction/output_nc/classified_{}'.format(id), 'w') as dst:           
+        with nc.Dataset(args.data) as src, nc.Dataset('data/prediction/output_nc/classified_{}.nc'.format(id), 'w') as dst:           
             # copy global attributes all at once via dictionary
             dst.setncatts(src.__dict__)
             # copy dimensions
