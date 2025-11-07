@@ -318,7 +318,7 @@ def main():
         toexclude = ['Ts', 'grad']
         crop = ['yd', 'xd']
 
-        with nc.Dataset(args.data) as src, nc.Dataset('data/prediction/output_nc/classified_{}.nc'.format(id), 'w') as dst:           
+        with nc.Dataset(args.data) as src, nc.Dataset('data/prediction/output_nc/classified_{}'.format(id), 'w') as dst:           
             # copy global attributes all at once via dictionary
             dst.setncatts(src.__dict__)
             # copy dimensions
@@ -352,7 +352,7 @@ def main():
             # create fraction variables
             fractions = calculate_mpf(mask_dir)
             _, mean_probabilities = filter_and_calculate_mpf(
-                mask_dir, probabilities_dir, threshold=0.9
+                mask_dir, probabilities_dir
             )
 
             mpf = dst.createVariable("mpf", "f4", ('t'))

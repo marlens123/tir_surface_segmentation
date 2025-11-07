@@ -264,7 +264,7 @@ def calculate_mpf(dir):
 
     return fractions
 
-def filter_and_calculate_mpf(mask_dir, probabilities_dir, threshold):
+def filter_and_calculate_mpf(mask_dir, probabilities_dir, threshold=None):
     masks = np.load(mask_dir)
     probabilities = np.load(probabilities_dir)
 
@@ -278,8 +278,9 @@ def filter_and_calculate_mpf(mask_dir, probabilities_dir, threshold):
     for idx, im in enumerate(masks):
         # mean probability of all pixels in image
         mean_probabilities[idx] = np.mean(probabilities[idx])
-        prob_mask = np.where(probabilities[idx] < threshold)
-        im[prob_mask] = 3
+        if threshold is not None:
+            prob_mask = np.where(probabilities[idx] < threshold)
+            im[prob_mask] = 3
         pond = np.sum(im == 0)
         sea_ice = np.sum(im == 1)
         ocean = np.sum(im == 2)
